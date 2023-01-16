@@ -48,7 +48,7 @@ Run the application on your localhost and test the APIs on Postman or RapidAPI o
 
 `Note: This endpoint is accessable to BA only`
 
-#### BA Endpoint
+#### Manager Endpoint
 
 ```http
   GET /api/User/Manager
