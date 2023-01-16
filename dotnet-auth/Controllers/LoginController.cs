@@ -42,7 +42,7 @@ namespace dotnet_auth.Controllers
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"])); // getting the random key that i defined in appsettings
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256); // hashing alogrithm 
 
-            var claims = new[] //dk what claims are
+            var claims = new[] //dk what claims are (shyd user ka data hold krty takay database pr hit na kre)
             {
                 new Claim(ClaimTypes.NameIdentifier,user.Username),
                 new Claim(ClaimTypes.Email,user.Email),
@@ -62,7 +62,7 @@ namespace dotnet_auth.Controllers
         private User Authentiacte(Login login)
         {
             var currentUser = Constants.users.FirstOrDefault(
-                e => e.Username.ToLower() == login.Username && e.Password == login.Password
+                e => e.Username.ToLower() == login.Username.ToLower() && e.Password == login.Password
                 );
             if (currentUser != null){
                 return currentUser;
